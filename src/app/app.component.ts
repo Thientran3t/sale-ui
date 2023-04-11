@@ -36,7 +36,7 @@ export class AppComponent {
       this.stompClient.subscribe('/vnet', (message : any) => {
         console.log(message);
         if (message.body) {
-          this.dataSource.data = JSON.parse(message.body);
+          this.dataSource.data = this.dataSource.data.concat(JSON.parse(message.body));
         }
       });
     });
